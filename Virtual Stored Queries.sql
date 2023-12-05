@@ -1,5 +1,5 @@
 use littlelemondb;
-#create view OrdersView as Select orderId,quantity, totalcost from orders where quantity>2;
+create view OrdersView as Select orderId,quantity, totalcost from orders where quantity>2;
 select * from OrdersView;
 
 select person.firstName, person.lastName,orders.orderId,orders.totalcost,menu.menuName,menuitems.itemName from orders
