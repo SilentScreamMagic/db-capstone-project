@@ -22,12 +22,11 @@ prepare GetOrderDetails from 'select orderid, quantity, totalcost from orders wh
 Execute GetOrderDetails using @id;
 
 Delimiter //
-create procedure CancelOrder(in id int, out output varchar(50))
+create procedure CancelOrder(in id int)
 begin
 delete from orders where orderid = id;
-select output = concat('Order',id,'has been cancelled') as "Confirmation";
+select concat('Order',id,' has been cancelled') as "Confirmation";
 end//
 Delimiter ;
 
-set @result= '';
-call CancelOrder(3, @result);
+call CancelOrder(3);
